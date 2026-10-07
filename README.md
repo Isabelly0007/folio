@@ -31,7 +31,7 @@ Baixe em <https://www.apachefriends.org> e inicie o **Apache** e o **MySQL** no 
 Copie (ou clone) esta pasta para `C:\xampp\htdocs\folio`:
 
 ```bash
-git clone https://github.com/SEU-USUARIO/folio.git C:/xampp/htdocs/folio
+git clone https://github.com/Isabelly0007/folio.git C:/xampp/htdocs/folio
 ```
 
 ### 3. Crie o banco de dados
