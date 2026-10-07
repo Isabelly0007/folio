@@ -76,9 +76,11 @@ $result_respostas = $stmt_respostas->get_result();
 
     <p><strong><?= htmlspecialchars($userData['username'] ?? 'Usuário') ?></strong></p>
 
+    <?php if (!empty($userData['bio'])): ?>
     <div class="perfil-lado-esquerdo-bio">
-      <p>"<?= htmlspecialchars($userData['bio'] ?? '') ?>"</p>
+      <p>"<?= htmlspecialchars($userData['bio']) ?>"</p>
     </div>
+    <?php endif; ?>
   </div>
 
   <div class="perfil-lado-direito">

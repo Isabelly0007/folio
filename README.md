@@ -13,6 +13,32 @@ O **Fólio** é um site para estudantes e vestibulandos aprenderem sobre a **lit
 - **Contas de usuário**: cadastro com validação de senha forte, login, perfil com foto e bio, perfil público, recuperação de senha por e-mail e exclusão de conta.
 - **Fale Conosco**: formulário no rodapé que envia mensagens por e-mail.
 
+## Telas
+
+<p align="center">
+  <img src="docs/prints/01-inicio.png" alt="Página inicial com login e cadastro" width="100%">
+</p>
+
+| Home — a Carta de Pero Vaz de Caminha | Escolas literárias |
+|---|---|
+| ![Home](docs/prints/02-home.png) | ![Escolas literárias](docs/prints/03-escolas.png) |
+| **Página de uma escola literária** | **Poema de exemplo** |
+| ![Romantismo](docs/prints/04-escola-literaria.png) | ![Poema](docs/prints/05-poema.png) |
+| **Principais obras da escola** | **Acervo com busca** |
+| ![Obras do Arcadismo](docs/prints/06-obras-da-escola.png) | ![Acervo](docs/prints/07-acervo.png) |
+| **Detalhes da obra e download** | **Fórum com avaliação por estrelas** |
+| ![Detalhes da obra](docs/prints/08-detalhes-da-obra.png) | ![Fórum](docs/prints/09-forum.png) |
+| **Minha conta** | |
+| ![Perfil](docs/prints/10-perfil.png) | |
+
+### No celular
+
+<p align="center">
+  <img src="docs/prints/11-celular-escola.png" alt="Página de escola literária no celular" width="260">
+  &nbsp;&nbsp;
+  <img src="docs/prints/12-celular-menu.png" alt="Menu no celular" width="260">
+</p>
+
 ## Tecnologias
 
 | Camada | Tecnologia |
@@ -70,6 +96,7 @@ Faça uma cópia de `config.example.php` com o nome **`config.php`** e preencha:
 ├── css/tema.css             # acabamento visual compartilhado (fontes, formas e animações)
 ├── js/tema.js               # animações ao rolar e destaque do menu
 ├── imagens/, js/            # arquivos compartilhados
+├── docs/prints/             # imagens das telas usadas neste README
 └── phpmailer-master/        # biblioteca PHPMailer
 ```
 

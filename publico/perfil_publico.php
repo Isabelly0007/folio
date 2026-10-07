@@ -84,7 +84,7 @@ body {
 <div class="perfil-box">
     <img src="<?= htmlspecialchars(foto_perfil($userData['foto'])) ?>" class="foto-perfil">
     <h3 class="nome-perfil">@<?= htmlspecialchars($userData['username']) ?></h3>
-<p class="fst-italic">"<?= htmlspecialchars($userData['bio'] ?? '') ?>"</p>
+<?php if (!empty($userData['bio'])): ?><p class="fst-italic">"<?= htmlspecialchars($userData['bio']) ?>"</p><?php endif; ?>
 </div>
 </center>
 
