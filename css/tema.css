@@ -1,0 +1,374 @@
+/* =====================================================================
+   Fólio — tema compartilhado
+   Carregado por ÚLTIMO em todas as páginas.
+   NÃO define cores: cada página mantém as cores originais dela.
+   Este arquivo cuida apenas de tipografia, formas, espaçamento e movimento,
+   para que todas as páginas tenham o mesmo acabamento.
+   Onde precisa de um tom, usa currentColor ou --third-color (o vinho
+   que as próprias páginas já definem).
+   ===================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600;700&display=swap");
+
+:root {
+  --acento: var(--third-color, #740e10);
+
+  --fonte-titulo: "Libre Caslon Text", Georgia, serif;
+  --fonte-texto: "Quicksand", system-ui, sans-serif;
+
+  /* Formas orgânicas */
+  --raio: 18px;
+  --raio-pequeno: 10px;
+  --organico-1: 46% 54% 42% 58% / 38% 44% 56% 62%;
+  --organico-2: 58% 42% 55% 45% / 52% 60% 40% 48%;
+  --organico-suave: 28px 18px 30px 16px / 18px 30px 16px 28px;
+
+  /* Sombras neutras (não mudam as cores das páginas) */
+  --sombra: 0 2px 6px rgba(0, 0, 0, 0.06), 0 12px 28px rgba(0, 0, 0, 0.09);
+  --sombra-forte: 0 8px 18px rgba(0, 0, 0, 0.12), 0 24px 56px rgba(0, 0, 0, 0.18);
+
+  --curva: cubic-bezier(0.22, 1, 0.36, 1);
+  --transicao: 0.35s var(--curva);
+}
+
+/* ---------- Tipografia unificada ---------- */
+body {
+  font-family: var(--fonte-texto);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4,
+.titulo-card, .section-title, .forum-header h2, .meus-topicos h2 {
+  font-family: var(--fonte-titulo);
+  letter-spacing: -0.01em;
+}
+/* Fundo branco explícito (o mesmo que os navegadores já mostravam): evita que
+   o modo escuro do celular/navegador pinte as páginas de preto */
+html { scroll-padding-top: 90px; background-color: #fff; color-scheme: light; }
+
+a, button, input, textarea, select { transition: all var(--transicao); }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- Menu ---------- */
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  text-decoration: none;
+  margin-top: 0;
+}
+header .logo img {
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.6s var(--curva);
+}
+header .logo:hover img { transform: rotate(-10deg) scale(1.08); }
+
+header .navbar { gap: 4px; align-items: center; }
+header .navbar a {
+  position: relative;
+  padding: 8px 14px;
+  font-family: var(--fonte-texto);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 999px;
+}
+header .navbar a:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
+/* Sublinhado orgânico que "cresce" do centro */
+header .navbar a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: translateX(-50%);
+  transition: width 0.4s var(--curva);
+}
+header .navbar a:hover::after { width: 40%; }
+header .navbar a.ativo::after { width: 60%; height: 3px; }
+
+@media (max-width: 1110px) {
+  header .navbar a { padding: 12px 16px; border-radius: var(--raio-pequeno); }
+  header .navbar a::after { left: 16px; transform: none; }
+  header .navbar a.ativo::after { width: 32px; }
+}
+
+/* ---------- Banners ---------- */
+.home { position: relative; overflow: hidden; isolation: isolate; }
+/* Bolhas de luz suaves flutuando no fundo (brancas e translúcidas, sem alterar a cor da página) */
+.home::before, .home::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: var(--organico-1);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  animation: flutuar 14s ease-in-out infinite alternate;
+}
+.home::before { width: 420px; height: 380px; top: -120px; left: -80px; }
+.home::after {
+  width: 340px; height: 320px; bottom: -140px; right: -60px;
+  border-radius: var(--organico-2);
+  animation-duration: 18s;
+  animation-direction: alternate-reverse;
+}
+.home-text h1, .home-text h2, .home-text p, .home-text button, .pesquisa-overlay > * {
+  animation: surgir 1s var(--curva) both;
+}
+.home-text h2 { animation-delay: 0.15s; font-weight: 400; font-style: italic; }
+.home-text p { animation-delay: 0.25s; }
+.home-text button { animation-delay: 0.35s; font-size: 1rem; }
+.home-text h1 { font-family: var(--fonte-titulo); letter-spacing: -0.02em; }
+
+/* Acervo: banner mais compacto (mantém a imagem e as cores originais) */
+section.home:has(.pesquisa-overlay) { height: auto; min-height: 460px; }
+.pesquisa-overlay input { border-radius: 999px; padding-left: 1.4em; box-shadow: var(--sombra-forte); }
+.pesquisa-overlay input:focus { transform: scale(1.02); }
+
+/* Ondas: respiram devagar */
+.onda-container, .svg-top, .svg-bottom, .ondas-svg { overflow: hidden; }
+.onda-svg, .svg-top .wave, .svg-bottom .wave, .ondas-svg svg {
+  transform-origin: top center;
+  animation: ondular 9s ease-in-out infinite alternate;
+}
+.svg-bottom .wave, .ondas-svg svg { transform-origin: bottom center; }
+
+/* ---------- Textos longos ---------- */
+.text, .texto, .texto1, .textinho, .conteudo-carta p, .modal-texto p {
+  text-align: left;
+  line-height: 1.8;
+}
+.text h2, .texto h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); margin: 0.6em 0 0.3em; }
+/* Linha sob os títulos: traço de pincel em vez de régua */
+.text hr {
+  height: 4px;
+  width: 72px;
+  border: none;
+  border-radius: 4px 10px 6px 12px;
+  background: currentColor;
+  color: var(--acento);
+  margin: 6px 0 20px;
+  opacity: 0.9;
+  transform-origin: left;
+}
+.visivel .text hr, .text.visivel hr { animation: tracar 0.9s var(--curva) both; }
+.text ul li { margin-bottom: 0.6em; }
+
+/* Imagens ilustrativas com contorno orgânico */
+.imagem-flutuante img, .imagem-flutuante1 img {
+  border-radius: var(--organico-suave);
+  box-shadow: var(--sombra);
+  transition: border-radius 1.2s var(--curva), transform 0.6s var(--curva), box-shadow 0.6s var(--curva);
+}
+.imagem-flutuante img:hover, .imagem-flutuante1 img:hover {
+  border-radius: var(--organico-1);
+  transform: scale(1.02) rotate(-0.6deg);
+  box-shadow: var(--sombra-forte);
+}
+.imagem-flutuante span { font-style: italic; opacity: 0.8; margin-top: 10px; }
+
+/* Poemas de exemplo nas páginas das escolas */
+.text p[style*="text-align:center"] {
+  position: relative;
+  max-width: 620px;
+  margin: 1.4rem auto 2rem;
+  padding: 2.4rem 2rem 2rem;
+  border-radius: var(--organico-suave);
+  box-shadow: var(--sombra);
+  background: rgba(255, 255, 255, 0.55);
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  line-height: 1.9;
+}
+.text p[style*="text-align:center"]::before {
+  content: "❝";
+  position: absolute;
+  top: -0.55em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  font-style: normal;
+  line-height: 1;
+  color: var(--acento);
+}
+.text p[style*="text-align:center"] strong { display: block; margin-bottom: 0.6rem; font-style: normal; font-size: 1.25rem; color: var(--acento); }
+.text p[style*="text-align:center"] small { display: block; margin-top: 1rem; font-family: var(--fonte-texto); font-style: normal; opacity: 0.75; }
+
+/* Citação da Carta */
+.carta-container { border-radius: var(--organico-suave); }
+
+/* ---------- Galeria de autores da Home (Carta) ---------- */
+.authors-gallery .image-placeholder {
+  border-radius: 999px 999px var(--raio) var(--raio);
+  box-shadow: var(--sombra-forte);
+  animation: flutuar-leve 7s ease-in-out infinite alternate;
+  transition: transform 0.6s var(--curva), filter 0.6s var(--curva);
+}
+.authors-gallery .image-placeholder:nth-child(2) { animation-delay: -2s; }
+.authors-gallery .image-placeholder:nth-child(3) { animation-delay: -4s; }
+.authors-gallery .image-placeholder:nth-child(4) { animation-delay: -6s; }
+.authors-gallery .image-placeholder:hover { filter: saturate(1.15) contrast(1.05); }
+
+/* ---------- Cartões e carrosséis ---------- */
+.carousel .card, .wrapper .card, .cards-grid .card, .card-obra, .carrossel .card {
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  transition: transform 0.5s var(--curva), box-shadow 0.5s var(--curva), opacity 0.8s var(--curva);
+}
+.carousel .card:hover, .wrapper .card:hover, .cards-grid .card:hover, .card-obra:hover, .carrossel .card:hover {
+  transform: translateY(-8px) rotate(-0.4deg);
+  box-shadow: var(--sombra-forte);
+}
+.carousel .card img, .card-obra, .cards-grid .card img { transition: transform 0.8s var(--curva), background-size 0.8s var(--curva); }
+.carousel .card:hover img, .cards-grid .card:hover img { transform: scale(1.06); }
+.cards-grid .card img { border-radius: var(--organico-suave); }
+.card-obra { background-size: 105% !important; }
+.card-obra:hover { background-size: 115% !important; }
+
+/* Setas dos carrosséis */
+.nav-button, .wrapper i.arrow, .btn-anterior, .btn-proximo {
+  box-shadow: var(--sombra);
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+.nav-button:hover, .wrapper i.arrow:hover, .btn-anterior:hover, .btn-proximo:hover {
+  transform: scale(1.12);
+  box-shadow: var(--sombra-forte);
+}
+
+/* ---------- Botões ---------- */
+.ver-mais, .btn-acao, .btn-acao1, .btn-sec, .btn-ter,
+.filtro-container button, .topico button, .tpc button,
+.modal-card button, #botaoDownload, #formRecuperarSenha button,
+.home-text button, .footer form button, .pagination a {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+/* Brilho que atravessa o botão no hover */
+.ver-mais::after, .btn-acao::after, .filtro-container button::after, .topico button::after,
+.tpc button::after, .modal-card button::after, #botaoDownload::after, .home-text button::after,
+.footer form button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--curva);
+  pointer-events: none;
+}
+.ver-mais:hover::after, .btn-acao:hover::after, .filtro-container button:hover::after,
+.topico button:hover::after, .tpc button:hover::after, .modal-card button:hover::after,
+#botaoDownload:hover::after, .home-text button:hover::after, .footer form button:hover::after {
+  transform: translateX(120%);
+}
+.ver-mais:hover, .btn-acao:hover, .btn-acao1:hover, .filtro-container button:hover, .topico button:hover,
+.tpc button:hover, .modal-card button:hover, #botaoDownload:hover, .home-text button:hover, .footer form button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra);
+}
+.ver-mais:active, .btn-acao:active, .filtro-container button:active, .topico button:active,
+.home-text button:active, .footer form button:active { transform: translateY(0) scale(0.97); }
+
+/* ---------- Formulários ---------- */
+.filtro-container input, .filtro-container select,
+.topico input, .topico textarea, .tpc textarea,
+.form-group input, .modal-card input, #formRecuperarSenha input,
+.footer form input, .footer form textarea {
+  font-family: var(--fonte-texto);
+  border-radius: var(--raio-pequeno);
+}
+.filtro-container input:focus, .filtro-container select:focus,
+.topico input:focus, .topico textarea:focus, .tpc textarea:focus,
+.form-group input:focus, .modal-card input:focus, #formRecuperarSenha input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--acento) 18%, transparent);
+}
+
+/* ---------- Fórum e perfis ---------- */
+.forum-header, .filtro-container, .topico, .resposta, .perfil-card {
+  border-radius: var(--organico-suave);
+}
+.filtro-container, .topico, .resposta, .perfil-card { box-shadow: var(--sombra); }
+.lista-topicos .topico, .meus-topicos ~ .topico, .resposta {
+  transition: transform 0.5s var(--curva), box-shadow 0.5s var(--curva), opacity 0.8s var(--curva);
+}
+.lista-topicos .topico:hover, .resposta:hover { transform: translateY(-4px); box-shadow: var(--sombra-forte); }
+.estrela { transition: transform 0.25s var(--curva), color 0.25s; display: inline-block; }
+.estrela:hover { transform: scale(1.35) rotate(-8deg); }
+.foto-perfil img, .card-foto img { border-radius: var(--organico-1); transition: border-radius 1.2s var(--curva); }
+.foto-perfil:hover img, .card-foto:hover img { border-radius: var(--organico-2); }
+.grade-fotos img { border-radius: var(--organico-1); transition: transform 0.4s var(--curva), border-radius 0.8s var(--curva); }
+.grade-fotos img:hover { transform: scale(1.08); border-radius: var(--organico-2); }
+
+/* ---------- Janelas (modais) ---------- */
+.modal-obra, .modal-autor, .modal-fotos, #modal.modal { backdrop-filter: blur(5px); }
+.modal-obra .modal-content, .modal-autor .modal-content, .modal-conteudo, .modal-card {
+  border-radius: var(--organico-suave);
+  box-shadow: var(--sombra-forte);
+}
+[style*="flex"] > .modal-content, [style*="flex"] > .modal-conteudo, [style*="flex"] > .modal-card,
+.modal-fotos[style*="flex"] .modal-conteudo, #modal[style*="flex"] .modal-card {
+  animation: abrir 0.5s var(--curva) both;
+}
+.modal-capa { border-radius: var(--organico-suave); box-shadow: var(--sombra); }
+
+/* ---------- Paginação e "voltar ao topo" ---------- */
+.pagination a { box-shadow: var(--sombra); }
+.pagination a:hover { transform: scale(1.1); }
+#backToTop { border-radius: var(--organico-1); box-shadow: var(--sombra-forte); animation: surgir 0.5s var(--curva) both; }
+#backToTop:hover { transform: translateY(-4px); border-radius: 50%; }
+
+/* ---------- Rodapé ---------- */
+.footer { font-family: var(--fonte-texto); }
+.footer h5 { font-family: var(--fonte-titulo); font-weight: 700; letter-spacing: 0.02em; }
+.footer ul li a { display: inline-block; text-decoration: none; }
+.footer ul li a:hover { transform: translateX(5px); }
+.footer form button { max-width: none; align-self: flex-start; padding: 8px 24px; }
+.qr img { border-radius: var(--raio-pequeno); transition: transform 0.5s var(--curva); }
+.qr img:hover { transform: scale(1.05) rotate(-2deg); }
+
+/* ---------- Revelação ao rolar a página (ativada por js/tema.js) ---------- */
+.revelar { opacity: 0; transform: translateY(32px); }
+.revelar.visivel {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.9s var(--curva), transform 0.9s var(--curva);
+  transition-delay: var(--atraso, 0s);
+}
+
+/* ---------- Animações ---------- */
+@keyframes surgir { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes abrir { from { opacity: 0; transform: translateY(20px) scale(0.96); } to { opacity: 1; transform: none; } }
+@keyframes flutuar {
+  0%   { transform: translate(0, 0) rotate(0deg); border-radius: var(--organico-1); }
+  100% { transform: translate(40px, 30px) rotate(25deg); border-radius: var(--organico-2); }
+}
+@keyframes flutuar-leve { from { transform: translateY(0); } to { transform: translateY(-12px); } }
+@keyframes ondular { from { transform: scaleY(1); } to { transform: scaleY(1.22); } }
+@keyframes tracar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .revelar { opacity: 1; transform: none; }
+}
+
+/* ---------- Sobre: largura confortável para leitura ---------- */
+.sobre-nos .textinho { max-width: 760px; margin: 0.8rem auto 0; font-size: 1.05rem; line-height: 1.8; text-align: center; }
+.sobre-nos h4 { font-family: var(--fonte-titulo); font-style: italic; font-weight: 400; }

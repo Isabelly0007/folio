@@ -1,0 +1,782 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap");
+
+/*<style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+</style>*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 2rem;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+  font-family: "Quicksand", sans-serif;
+}
+body {
+  background-color: #fff1f1;
+}
+:root {
+  --main-color: #e5b6ac;
+  --second-color: #000000;
+  --third-color: #740e10;
+}
+section {
+  padding: 0 10%;
+}
+img {
+  width: 100%;
+}
+header {
+  position: relative;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /*   box-shadow: 0 4px 41px rgb(14 55 54 /14%);*/
+  padding: 15px 10%;
+  transition: 0.2s;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: "Quicksand", sans-serif; /* mesma da navbar */
+  font-weight: 700;
+  font-size: 1rem; /* mesmo tamanho do texto da navbar */
+  color: var(--third-color);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 40px;
+  margin-right: 8px; /* espaço entre a logo e o nome */
+}
+
+.logo:hover {
+  color: var(--main-color);
+  transition: color 0.3s ease;
+}
+
+.navbar {
+  display: flex;
+}
+.navbar a {
+  font-size: 1rem;
+  padding: 11px 10px;
+  color: var(--third-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.navbar a:hover {
+  color: var(--main-color);
+}
+#menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  color: var(--third-color);
+  display: none;
+}
+@media (max-width: 2808px) {
+  .logo {
+    margin-top: -15px;
+  }
+}
+@media (max-width: 1150px) {
+  header {
+    padding: 18px 7%;
+  }
+  section {
+    padding: 50px 7%;
+  }
+}
+
+@media (max-width: 1105px) {
+  header {
+    padding: 15px 7%;
+  }
+  #menu-icon {
+    display: initial;
+  }
+  header .navbar {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #efecec;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(102, 100, 100, 0.2); /* sombra apenas na parte de baixo */
+    border-top: 2px solid #fff;
+    transition: 0.2s;
+    text-align: left;
+    padding-left: 4%;
+  }
+  .navbar.active {
+    top: 100%;
+  }
+  .navbar a {
+    padding: 1rem;
+    color: #740e10;
+    display: block;
+  }
+}
+
+/* ======= MAIN ======= */
+main {
+  display: flex;
+  gap: 30px;
+  padding: 30px 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.forum-header {
+  background-color: #6c0000;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px 10%;
+}
+
+.topico,
+.resposta {
+  background: #fff;
+  padding: 15px;
+  margin: 20px 10%;
+  border: 2px solid #6c0000;
+}
+
+.usuario-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.usuario-info .avatar {
+  width: 40px;
+  height: 40px;
+  background: #bbb;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+form textarea,
+form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+form button {
+  background-color: #6c0000;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* ======= RODAPÉ ======= */
+
+.footer-section {
+  background-color: #4d0000;
+}
+/* Footer geral */
+.footer {
+  background-color: #4d0000;
+  color: white;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Container com flexbox */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Colunas */
+.footer-col {
+  flex: 1 1 20%; /* 4 colunas em telas grandes */
+  min-width: 0;
+}
+
+.footer h5 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #ffffff;
+}
+
+/* Formulário */
+.footer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer form label {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #cccccc;
+}
+
+.footer form input,
+.footer form textarea {
+  background-color: #ffffff;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  margin-top: 5px;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 40px;
+  border-radius: 4px;
+}
+
+.footer form input::placeholder,
+.footer form textarea::placeholder {
+  color: #565252;
+}
+
+.footer form button {
+  border: 2px solid white;
+  padding: 7px 16px;
+  max-width: 75px;
+  color: #fff;
+  background-color: #4d0000;
+  font-weight: 500;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: background-color 0.4s;
+}
+
+.footer form button:hover {
+  background: #fff;
+  color: #4d0000;
+  border: 2px solid #4d0000;
+}
+
+/* Rodapé inferior */
+.footer-bottom {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #670000;
+  margin: 0;
+}
+
+@media (max-width: 1090px) {
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px 5%;
+  }
+
+  .footer-col {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+@media (max-width: 600px) {
+  .footer-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.filtro-container {
+  margin: 20px 10%;
+
+  padding: 15px;
+
+  background: #f8f8f8;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filtro-container input,
+.filtro-container select,
+.filtro-container button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.filtro-container button {
+  background-color: #8b0000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filtro-container button:hover {
+  background-color: #a32c2c;
+}
+
+.topico {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: justify;
+}
+.topico strong a {
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .lista-topicos {
+    margin: 20px 4%;
+  }
+}
+
+@media (max-width: 1150px) {
+  .lista-topicos {
+    margin: 50px 0;
+  }
+}
+
+.contador-votos {
+  font-size: 14px;
+}
+.topico h3 {
+  color: #8b0000;
+}
+.topico a {
+  color: #8b0000;
+  font-size: 14px;
+}
+.topico a:hover {
+  color: #e28080;
+  transition: 0.5s;
+}
+.estrelas {
+  font-size: 22px;
+  color: #ccc;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.estrelas .checked {
+  color: gold;
+}
+
+.estrela:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+/* Limitar a largura do formulário */
+form .tpc {
+  max-width: 100%; /* Isso garante que o formulário se ajuste dentro da section */
+  width: 100%; /* Ocupa a largura total disponível, mas não ultrapassa o limite */
+  box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho total */
+}
+
+/* Limitar a largura do textarea */
+.tpc textarea {
+  min-width: 100%; /* O textarea ocupará toda a largura disponível dentro do formulário */
+  max-width: 100%; /* Não ultrapassará a largura do formulário */
+  box-sizing: border-box; /* Para incluir padding e bordas no cálculo da largura */
+  min-height: 50px;
+}
+
+/* Estilizar o botão */
+.tpc button {
+  max-width: 100%;
+}
+.pdt h3 {
+  color: #740e10;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #740e10;
+  padding-bottom: 5px;
+}
+.tpca {
+  text-decoration: none;
+}
+.ttl {
+  font-size: 1.2rem;
+  color: #5e0000;
+  margin: 15px 0 10px;
+  border-bottom: 2px solid #310000;
+  padding-bottom: 4px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #4a0e0e;
+  text-align: left; /* garante alinhamento à esquerda */
+  margin: 25px 0 10px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 4px solid #8b0000;
+  padding-left: 10px;
+  width: 100%; /* evita centralização por flex containers */
+  display: block;
+}
+.card-foto .text-center img {
+  width: 200px;
+  height: 200px;
+}
+.qrp {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+
+  font-weight: bold;
+}
+.perfil-box {
+  background: #ffffff;
+  width: 90%;
+  max-width: 800px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Foto */
+.foto-perfil {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #c77d7d;
+  margin-bottom: 10px;
+}
+
+/* Nome */
+.nome-perfil {
+  font-weight: 600;
+  font-size: 22px;
+  color: #333;
+}
+
+/* Bio */
+.bio-perfil {
+  font-style: italic;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* 📱 Responsividade */
+@media (max-width: 768px) {
+  .perfil-box {
+    padding: 20px;
+    max-width: 320px;
+  }
+
+  .foto-perfil {
+    width: 100px;
+    height: 100px;
+  }
+
+  .nome-perfil {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfil-box {
+    padding: 18px;
+    max-width: 280px;
+  }
+
+  .foto-perfil {
+    width: 90px;
+    height: 90px;
+  }
+
+  .nome-perfil {
+    font-size: 18px;
+  }
+
+  .bio-perfil {
+    font-size: 14px;
+  }
+}
+/* ============================
+   RESPONSIVIDADE ENTRE 900PX E 500PX
+   ============================ */
+@media (max-width: 900px) and (min-width: 500px) {
+  /* HEADER */
+  header {
+    padding: 12px 6%;
+  }
+
+  .logo img {
+    width: 32px;
+  }
+
+  .navbar a {
+    font-size: 0.9rem;
+    padding: 10px 6px;
+  }
+
+  /* MENU MOBILE */
+  #menu-icon {
+    display: initial;
+  }
+
+  header .navbar {
+    top: -500px;
+    flex-direction: column;
+    background: #f6eaea;
+    padding-left: 6%;
+  }
+
+  .navbar.active {
+    top: 100%;
+  }
+
+  .navbar a {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* MAIN / FÓRUM */
+  main {
+    padding: 20px 10px;
+  }
+
+  .forum-header {
+    margin: 20px 5%;
+    padding: 25px;
+    font-size: 16px;
+  }
+
+  .topico,
+  .resposta {
+    margin: 15px 5%;
+    padding: 12px;
+  }
+
+  .usuario-info .avatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* FILTRO */
+  .filtro-container {
+    margin: 20px 5%;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .filtro-container input,
+  .filtro-container select,
+  .filtro-container button {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+
+  /* TÓPICOS */
+  .topico h3 {
+    font-size: 20px;
+  }
+
+  .topico {
+    font-size: 15px;
+  }
+
+  /* CONTADOR / ESTRELAS */
+  .contador-votos {
+    font-size: 13px;
+  }
+
+  .estrelas {
+    font-size: 20px;
+  }
+
+  /* CARD DE FOTO */
+  .card-foto .text-center img {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* PERIL */
+  .perfil-box {
+    max-width: 500px;
+    padding: 22px;
+  }
+
+  .foto-perfil {
+    width: 105px;
+    height: 105px;
+  }
+
+  .nome-perfil {
+    font-size: 20px;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    gap: 25px 5%;
+    justify-content: center;
+  }
+
+  .footer-col {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+
+  .footer h5 {
+    font-size: 16px;
+  }
+
+  .footer ul li {
+    font-size: 14px;
+  }
+}
+/* ===== PERFIL PÚBLICO – DIV BRANCA COM FOTO, NOME E BIO ===== */
+
+.perfil-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 10px;
+}
+
+.perfil-box {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.foto-perfil {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e0d3d3;
+  margin-bottom: 18px;
+}
+
+.nome-perfil {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #5a3535;
+}
+
+.bio-perfil {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+
+.perfil-citacao {
+  font-style: italic;
+  color: #733e3e;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .perfil-box {
+    padding: 25px;
+    max-width: 500px;
+  }
+
+  .foto-perfil {
+    width: 135px;
+    height: 135px;
+  }
+
+  .nome-perfil {
+    font-size: 22px;
+  }
+
+  .bio-perfil {
+    font-size: 14px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  .perfil-box {
+    padding: 20px;
+    max-width: 95%;
+  }
+
+  .foto-perfil {
+    width: 120px;
+    height: 120px;
+  }
+
+  .nome-perfil {
+    font-size: 20px;
+  }
+
+  .bio-perfil {
+    font-size: 14px;
+  }
+
+  .perfil-citacao {
+    font-size: 13px;
+  }
+}
+
+/* Celulares bem pequenos */
+@media (max-width: 430px) {
+  .foto-perfil {
+    width: 105px;
+    height: 105px;
+  }
+
+  .nome-perfil {
+    font-size: 18px;
+  }
+}

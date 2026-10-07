@@ -1,0 +1,456 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 2rem;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+  font-family: "Quicksand", sans-serif;
+}
+body {
+  background-color: #fff1f1;
+}
+:root {
+  --main-color: #e5b6ac;
+  --second-color: #fff;
+  --third-color: #740e10;
+}
+
+/* Espaçamento das seções */
+section {
+  padding: 0 10%;
+}
+
+img {
+  width: 100%;
+}
+
+/* HEADER CORRIGIDO + RESPONSIVO */
+header {
+  position: relative; /* mantém como no seu segundo código */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0c0d3c;
+  padding: 15px 10%;
+  transition: 0.2s;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  text-transform: uppercase;
+}
+
+.logo img {
+  width: 40px;
+  margin-right: 8px;
+}
+
+.logo:hover {
+  color: var(--main-color);
+  transition: color 0.3s ease;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+}
+
+.navbar a {
+  font-size: 1rem;
+  padding: 11px 10px;
+  color: var(--second-color);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.navbar a:hover {
+  color: var(--main-color);
+}
+
+/* ÍCONE DO MENU */
+#menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  color: white;
+  display: none; /* só aparece no mobile */
+}
+
+/* ========= RESPONSIVIDADE ========= */
+
+@media (max-width: 1150px) {
+  header {
+    padding: 18px 7%;
+  }
+  section {
+    padding: 30px 7%;
+  }
+}
+
+@media (max-width: 1108px) {
+  /* mostrar ícone hamburguer */
+  #menu-icon {
+    display: initial;
+  }
+
+  /* navbar vira menu lateral suspenso */
+  header .navbar {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #0c0d3c; /* mantém o tema do seu header */
+    display: flex;
+    box-shadow: 0 4px 8px rgba(180, 176, 176, 0.347); /* sombra apenas na parte de baixo */
+    border-top: 2px solid #fff;
+    transition: 0.2s ease;
+    text-align: left;
+    padding-left: 4%;
+  }
+
+  /* quando ativar o menu */
+  .navbar.active {
+    top: 100%;
+  }
+
+  .navbar a {
+    padding: 1rem;
+    display: block;
+    color: var(--second-color);
+  }
+}
+
+/* ======= ONDA SVG ======= */
+.svg-top {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -5px;
+}
+
+.wave {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+/*=========carta==================================*/
+.carta-container {
+  background-color: #4d0000;
+  color: white;
+  padding: 30px;
+  max-width: 1300px;
+  margin: 10px auto;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.conteudo-carta {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.conteudo-carta h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-family: "Libre Caslon Text", serif;
+}
+
+.conteudo-carta p {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ======= CARDS ======================================*/
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 10%;
+  box-sizing: border-box;
+}
+
+/* Card base */
+.card-obra {
+  width: 100%;
+  max-width: calc((100% - 90px) / 4); /* 4 cards por linha com gap de 30px */
+  aspect-ratio: 11 / 16;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s;
+}
+
+.card-obra:hover {
+  transform: scale(1.05);
+}
+
+/* Conteúdo centralizado */
+.card-obra .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.384);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.card-obra .overlay h2 {
+  margin: 0 0 10px;
+  font-size: 23px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Libre Caslon Text", serif;
+}
+
+.card-obra .overlay p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #ddd;
+  max-width: 90%;
+}
+
+/* ================== RESPONSIVIDADE ================== */
+@media (max-width: 1270px) {
+  .card-obra {
+    max-width: calc((100% - 60px) / 3); /* volta para 3 cards */
+  }
+  .card-obra .overlay h2 {
+    font-size: 20.5px;
+  }
+}
+
+@media (max-width: 830px) {
+  .card-obra {
+    max-width: calc((100% - 30px) / 2); /* 2 por linha */
+  }
+  .cards-container {
+    gap: 20px;
+    padding: 30px 9%;
+  }
+  .card-obra .overlay h2 {
+    font-size: 19px;
+  }
+  .card-obra .overlay p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 550px) {
+  .card-obra {
+    max-width: 100%; /* 1 por linha */
+  }
+  .cards-container {
+    padding: 20px 10%;
+  }
+  .card-obra .overlay h2 {
+    font-size: 20.5px;
+  }
+}
+/*Responsividade texto---------------------------------------*/
+@media (max-width: 1150px) {
+  header {
+    padding: 18px 7%;
+  }
+  section {
+    padding: 50px 7%;
+  }
+}
+
+@media (max-width: 908px) {
+  header {
+    padding: 15px 6%;
+  }
+  #menu-icon {
+    display: initial;
+  }
+  header .navbar {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #0c0d3c;
+    display: flex;
+    box-shadow: 0 4px 41px rgba(255, 255, 255, 0.14);
+    border-top: 2px solid #fff;
+    transition: 0.2s;
+    text-align: left;
+    padding-left: 4%;
+  }
+  .navbar.active {
+    top: 100%;
+  }
+  .navbar a {
+    padding: 1rem;
+    color: #fff;
+    display: block;
+  }
+}
+
+/*==========footer=================================================*/
+.footer-section {
+  background-color: #4d0000;
+}
+/* Footer geral */
+.footer {
+  background-color: #4d0000;
+  color: white;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Container com flexbox */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Colunas */
+.footer-col {
+  flex: 1 1 20%; /* 4 colunas em telas grandes */
+  min-width: 0;
+}
+
+.footer h5 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 5px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #ffffff;
+}
+
+/* Formulário */
+.footer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer form label {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #cccccc;
+}
+
+.footer form input,
+.footer form textarea {
+  background-color: #ffffff;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  margin-top: 5px;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 40px;
+  border-radius: 4px;
+}
+
+.footer form input::placeholder,
+.footer form textarea::placeholder {
+  color: #565252;
+}
+
+.footer form button {
+  border: 2px solid white;
+  padding: 7px 16px;
+  max-width: 75px;
+  color: #fff;
+  background-color: #4d0000;
+  font-weight: 500;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: background-color 0.4s;
+}
+
+.footer form button:hover {
+  background: #fff;
+  color: #4d0000;
+  border: 2px solid #4d0000;
+}
+
+/* Rodapé inferior */
+.footer-bottom {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #670000;
+  margin: 0;
+}
+@media (max-width: 1090px) {
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px 5%;
+  }
+
+  .footer-col {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+@media (max-width: 600px) {
+  .footer-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+.qrp {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 5px;
+font-weight: bold;
+}

@@ -1,0 +1,440 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap");
+
+/*<style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+</style>*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 2rem;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+  font-family: "Quicksand", sans-serif;
+}
+body {
+  background-color: #efecec;
+}
+:root {
+  --main-color: #e5b6ac;
+  --second-color: #000000;
+  --third-color: #740e10;
+}
+section {
+  padding: 0 10%;
+}
+img {
+  width: 100%;
+}
+header {
+  position: relative;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /*   box-shadow: 0 4px 41px rgb(14 55 54 /14%);*/
+  padding: 15px 10%;
+  transition: 0.2s;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: "Quicksand", sans-serif; /* mesma da navbar */
+  font-weight: 700;
+  font-size: 1rem; /* mesmo tamanho do texto da navbar */
+  color: var(--third-color);
+  text-transform: uppercase;
+}
+
+.logo img {
+  width: 40px;
+  margin-right: 8px; /* espaço entre a logo e o nome */
+}
+
+.logo:hover {
+  color: var(--main-color);
+  transition: color 0.3s ease;
+}
+
+.navbar {
+  display: flex;
+}
+.navbar a {
+  font-size: 1rem;
+  padding: 11px 20px;
+  color: var(--third-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.navbar a:hover {
+  color: var(--main-color);
+}
+#menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  color: var(--third-color);
+  display: none;
+}
+
+@media (max-width: 1150px) {
+  header {
+    padding: 18px 7%;
+   
+  }
+  section {
+    padding: 50px 7%;
+  }
+}
+
+@media (max-width: 1105px) {
+  header {
+    padding: 15px 7%;
+  }
+  #menu-icon {
+    display: initial;
+  }
+  header .navbar {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #efecec;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(102, 100, 100, 0.2); /* sombra apenas na parte de baixo */
+    border-top: 2px solid #fff;
+    transition: 0.2s;
+    text-align: left;
+    padding-left: 4%;
+  }
+  .navbar.active {
+    top: 100%;
+  }
+  .navbar a {
+    padding: 1rem;
+    color: #740e10;
+    display: block;
+  }
+}
+
+/* ======= MAIN ======= */
+main {
+  display: flex;
+  gap: 30px;
+  padding: 30px 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.forum-header {
+  background-color: #6c0000;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px 10%;
+}
+
+.topico,
+.resposta {
+  background: #fff;
+  padding: 15px;
+  margin: 20px 10%;
+  border: 2px solid #6c0000;
+}
+
+.usuario-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.usuario-info .avatar {
+  width: 40px;
+  height: 40px;
+  background: #bbb;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+form textarea,
+form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+form button {
+  background-color: #6c0000;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* ======= RODAPÉ ======= */
+
+.footer-section {
+  background-color: #4d0000;
+}
+/* Footer geral */
+.footer {
+  background-color: #4d0000;
+  color: white;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Container com flexbox */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Colunas */
+.footer-col {
+  flex: 1 1 20%; /* 4 colunas em telas grandes */
+  min-width: 0;
+}
+
+.footer h5 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 5px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #ffffff;
+}
+
+/* Formulário */
+.footer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer form label {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #cccccc;
+}
+
+.footer form input,
+.footer form textarea {
+  background-color: #ffffff;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  margin-top: 5px;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 40px;
+  border-radius: 4px;
+}
+
+.footer form input::placeholder,
+.footer form textarea::placeholder {
+  color: #565252;
+}
+
+.footer form button {
+  border: 2px solid white;
+  padding: 7px 16px;
+  max-width: 75px;
+  color: #fff;
+  background-color: #4d0000;
+  font-weight: 500;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: background-color 0.4s;
+}
+
+.footer form button:hover {
+  background: #fff;
+  color: #4d0000;
+  border: 2px solid #4d0000;
+}
+
+/* Rodapé inferior */
+.footer-bottom {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #670000;
+  margin: 0;
+}
+
+@media (max-width: 1090px) {
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px 5%;
+  }
+
+  .footer-col {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+@media (max-width: 600px) {
+  .footer-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.filtro-container {
+  margin: 20px 10%;
+
+  padding: 15px;
+
+  background: #f8f8f8;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filtro-container input,
+.filtro-container select,
+.filtro-container button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.filtro-container button {
+  background-color: #8b0000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filtro-container button:hover {
+  background-color: #a32c2c;
+}
+
+.topico {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px 10%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: justify;
+}
+
+@media (max-width: 600px) {
+  .topico {
+    margin: 20px 10%;
+  }
+}
+
+@media (max-width: 1150px) {
+  .topico {
+    margin: 50px 7%;
+  }
+}
+
+.contador-votos {
+  font-size: 14px;
+}
+.topico h3 {
+  color: #8b0000;
+}
+.topico a {
+  color: #8b0000;
+  font-size: 14px;
+}
+.topico a:hover {
+  color: #e28080;
+  transition: 0.5s;
+}
+.estrelas {
+  font-size: 22px;
+  color: #ccc;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.estrelas .checked {
+  color: gold;
+}
+
+.estrela:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+/* Limitar a largura do formulário */
+form .tpc {
+  max-width: 100%; /* Isso garante que o formulário se ajuste dentro da section */
+  width: 100%; /* Ocupa a largura total disponível, mas não ultrapassa o limite */
+  box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho total */
+}
+
+/* Limitar a largura do textarea */
+.tpc textarea {
+  min-width: 100%; /* O textarea ocupará toda a largura disponível dentro do formulário */
+  max-width: 100%; /* Não ultrapassará a largura do formulário */
+  box-sizing: border-box; /* Para incluir padding e bordas no cálculo da largura */
+  min-height: 50px;
+}
+
+/* Estilizar o botão */
+.tpc button {
+  max-width: 100%;
+}
+.pdt h3 {
+  font-size: 1.2rem;
+  color: #5e0000;
+  margin: 15px 0 10px;
+  border-bottom: 2px solid #310000;
+  padding-bottom: 4px;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #4a0e0e;
+  text-align: left; /* garante alinhamento à esquerda */
+  margin: 25px 0 10px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 4px solid #8b0000;
+  padding-left: 10px;
+  width: 100%; /* evita centralização por flex containers */
+  display: block;
+}

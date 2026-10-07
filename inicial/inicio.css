@@ -1,0 +1,723 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 2rem;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+  font-family: "Quicksand", sans-serif;
+}
+body {
+  background-color: #fff1f1;
+}
+:root {
+  --main-color: #e5b6ac;
+  --second-color: #fff;
+  --third-color: #740e10;
+}
+section {
+  padding: 0 10%;
+}
+img {
+  width: 100%;
+}
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  /*   box-shadow: 0 4px 41px rgb(14 55 54 /14%);*/
+  padding: 15px 10%;
+  transition: 0.2s;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 40px;
+}
+.navbar {
+  display: flex;
+}
+.navbar a {
+  font-size: 1rem;
+  padding: 11px 20px;
+  color: var(--second-color);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.navbar a:hover {
+  color: var(--main-color);
+}
+#menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  color: white;
+  display: none;
+}
+.home {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  text-align: flex-start;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url("./img/fundo.png");
+  margin-top: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  gap: 1rem;
+}
+.home-text {
+  max-width: 500px;
+  color: white;
+}
+
+.home-text h1 {
+  font-family: "Libre Caslon Text", serif;
+  font-size: 6rem;
+  font-weight: 400;
+}
+.home-text h2 {
+  font-family: "Libre Caslon Text", serif;
+  font-size: 3rem;
+  font-weight: 400;
+}
+button {
+  border: 1px solid #841414;
+  margin-right: 5px;
+  padding: 20px 30px;
+  color: #fff;
+  background-color: #4d0000;
+  font-weight: 500s;
+  border-radius: 6px;
+  margin-top: 20px;
+  transition: background-color 0.4s;
+}
+button:hover {
+  background: #fff;
+  color: #4d0000;
+  border: 1px solid #4d0000;
+}
+.containerr {
+  padding: 2% 0;
+
+  flex-direction: row;
+}
+
+.imagem-flutuante {
+  width: 30%;
+  float: left; /* ou right se quiser no lado direito */
+  margin-right: 30px;
+  margin-bottom: 1%;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.text {
+  line-height: 1.6;
+  text-align: justify;
+  font-size: 1.1rem;
+}
+.heading h1 {
+  color: #740e10;
+  font-family: "Libre Caslon Text", serif;
+  text-align: center;
+}
+
+.text ul li {
+  list-style: disc;
+  margin-left: 1.5rem; /* para deslocar os marcadores */
+}
+hr {
+  border: none;
+  height: 2px;
+  background: #740e10;
+  margin: 10px 0;
+}
+
+@media (max-width: 1150px) {
+  header {
+    padding: 18px 7%;
+  }
+  section {
+    padding: 50px 7%;
+  }
+
+  .home-text h1 {
+    font-size: 4rem;
+  }
+  .home-text h2 {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 1090px) {
+  .imagem-flutuante {
+    width: 45%;
+  }
+}
+
+@media (max-width: 908px) {
+  header {
+    padding: 15px 6%;
+  }
+  #menu-icon {
+    display: initial;
+  }
+  header .navbar {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #740e10;
+    display: flex;
+    box-shadow: 0 4px 41px rgba(255, 255, 255, 0.14);
+    border-top: 2px solid #fff;
+    transition: 0.2s;
+    text-align: left;
+    padding-left: 4%;
+  }
+  .navbar.active {
+    top: 100%;
+  }
+  .navbar a {
+    padding: 1rem;
+    color: #fff;
+    display: block;
+  }
+  .home-text {
+    max-width: 300px;
+  }
+  .home-text h1 {
+    font-size: 3.4rem;
+  }
+
+  .home-text h2 {
+    font-size: 1.8rem;
+  }
+  .imagem-flutuante {
+    width: 45%;
+  }
+}
+@media (max-width: 776px) {
+  .containerr {
+    flex-direction: column-reverse;
+  }
+  .imagem-flutuante {
+    float: none;
+    display: block;
+    margin: 0 auto 20px auto; /* centraliza a imagem */
+    width: 100%;
+  }
+}
+
+/*=========carta==================================*/
+.carta-container {
+  background-color: #4d0000;
+  color: white;
+  padding: 30px;
+  max-width: 1300px;
+  margin: 10px auto;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.conteudo-carta {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.conteudo-carta h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-family: "Libre Caslon Text", serif;
+}
+
+.conteudo-carta p {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/*===========FOOTER=====================================================*/
+
+.footer-section {
+  background-color: #4d0000;
+}
+/* Footer geral */
+.footer {
+  background-color: #4d0000;
+  color: white;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Container com flexbox */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Colunas */
+.footer-col {
+  flex: 1 1 20%; /* 4 colunas em telas grandes */
+  min-width: 0;
+}
+
+.footer h5 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 5px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #ffffff;
+}
+
+/* Formulário */
+.footer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer form label {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #cccccc;
+}
+
+.footer form input,
+.footer form textarea {
+  background-color: #ffffff;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  margin-top: 5px;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 40px;
+  border-radius: 4px;
+}
+
+.footer form input::placeholder,
+.footer form textarea::placeholder {
+  color: #565252;
+}
+
+.footer form button {
+  border: 2px solid white;
+  padding: 7px 16px;
+  max-width: 75px;
+  color: #fff;
+  background-color: #4d0000;
+  font-weight: 500;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: background-color 0.4s;
+}
+
+.footer form button:hover {
+  background: #fff;
+  color: #4d0000;
+  border: 2px solid #4d0000;
+}
+
+/* Rodapé inferior */
+.footer-bottom {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #670000;
+  margin: 0;
+}
+
+@media (max-width: 1090px) {
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px 5%;
+  }
+
+  .footer-col {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+@media (max-width: 600px) {
+  .footer-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+} /*
+ .text1 h2{
+        color: #ffffff;
+    }
+      .text1 hr{
+        border: none;
+        height: 2px;
+        background: #ffffff;
+        margin: 10px 0;
+    }
+    */
+
+.svg-top {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -5px;
+}
+
+.wave {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.modal-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.modal-card h2 {
+  margin-bottom: 20px;
+}
+
+.modal-card input,
+.modal-card button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/*=================CARROSSEL========================*/
+.carrossel-container {
+  text-align: center;
+  padding: 30px 10%;
+  background-color: #4d0000;
+}
+
+.carrossel-container h2 {
+  text-align: left;
+  font-family: "Libre Caslon Text", serif;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+/* ===== CARROSSEL ===== */
+.carrossel {
+  overflow: hidden;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.carrossel-inner {
+  display: flex;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+/* ===== CARD ESTILO POLAROID ===== */
+.card {
+  background-color: #fdf8f8;
+  border-radius: 8px;
+  margin: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  flex: 0 0 calc(33.333% - 20px);
+  text-align: center;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background-color: #d7d7d7;
+  border-radius: 4px;
+}
+
+.card button {
+  background-color: #9f0000;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+
+.card button:hover {
+  background-color: #860000;
+}
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .carrossel .card {
+    width: 220px;
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .carrossel .card {
+    width: 180px;
+    min-width: 180px;
+  }
+}
+/* ===== PONTINHOS ===== */
+.dots {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #555;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 1150px) {
+  .card {
+    padding: 25px;
+    flex: 0 0 calc(33.33% - 20px); /* Garantir que 3 cards caibam por linha */
+  }
+}
+
+/* 2 cards por linha */
+@media (max-width: 670px) {
+  .card {
+    flex: 0 0 calc(50% - 20px); /* Ajuste para garantir que 2 cards caibam sem corte */
+    padding: 21px;
+  }
+}
+
+/* 1 card por vez, mantendo o carrossel horizontal */
+@media (max-width: 368px) {
+  .carrossel-inner {
+    flex-wrap: nowrap; /* impede quebra de linha */
+  }
+
+  .card {
+    flex: 0 0 100%; /* Ocupa 100% da largura do carrossel */
+    max-width: 100%;
+    margin: 0 10px;
+    padding: 21px;
+  }
+
+  .btn-anterior,
+  .btn-proximo {
+    font-size: 26px;
+    padding: 6px 10px;
+  }
+}
+
+/* Ajustes finos para telas muito pequenas */
+@media (max-width: 480px) {
+  .carrossel-container {
+    padding: 30px 7%;
+  }
+
+  .card {
+    padding: 28px;
+  }
+
+  .card button {
+    padding: 7px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== BOTÕES LATERAIS ===== */
+.btn-anterior,
+.btn-proximo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-90%);
+  background-color: rgba(93, 92, 92, 0.3);
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 10%;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-anterior:hover,
+.btn-proximo:hover {
+  background-color: rgba(75, 74, 74, 0.6);
+  transform: translateY(-90%) scale(1.1);
+  color: white;
+  border: #d8d9d9 solid 1px;
+}
+
+.btn-anterior {
+  left: 2px;
+}
+
+.btn-proximo {
+  right: -3px;
+}
+
+/* garante que o carrossel continue horizontal */
+.carrossel {
+  position: relative;
+  overflow: hidden;
+}
+
+.senha-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.senha-container input {
+  width: 100%;
+  padding-right: 40px; /* espaço pro ícone */
+}
+
+.toggle-senha {
+  position: absolute;
+  right: 10px;
+  color: #666;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.toggle-senha:hover {
+  color: #000;
+}
+/* Só afeta ESTA seção */
+.intro-tit .intro-container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.intro-tit .intro-heading h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  width: 220px;
+  margin-top: 110px; /* ⬅ AQUI você controla o quanto quer descer o título */
+}
+
+.intro-tit .intro-text {
+  flex: 1;
+}
+
+.intro-tit .intro-text p {
+  line-height: 1.6;
+  text-align: justify;
+}
+#regras-senha {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.regra {
+  color: #b30000; /* vermelho */
+  margin: 3px 0;
+}
+
+.regra.ok {
+  color: #0f8f00; /* verde */
+  font-weight: bold;
+}
+.qrp {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+ text-transform: uppercase;
+font-weight: bold;
+}

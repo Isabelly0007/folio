@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="../escolas/img/logo.png" type="image/png" />
+    <link rel="stylesheet" href="inicio.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="../css/tema.css" />
+  <script src="../js/tema.js" defer></script>
+</head>
+  <body>
+    <!-- navbar -->
+    <header>
+      <!-- NAVBAR -->
+
+      <!-- MODAL -->
+      <div id="modal" class="modal" style="display: none">
+        <div class="modal-card">
+          <span class="close" id="close-modal">&times;</span>
+
+          <!-- LOGIN -->
+          <div id="tela-login">
+            <h2>Login</h2>
+            <form id="formLogin">
+              <input type="email" name="email" required placeholder="Email" />
+              <div class="senha-container">
+                <input
+                  type="password"
+                  name="senha"
+                  id="senhaLogin"
+                  required
+                  placeholder="Senha"
+                />
+                <i
+                  class="bx bx-hide toggle-senha"
+                  onclick="toggleSenha('senhaLogin', this)"
+                ></i>
+              </div>
+              <button type="submit">Entrar</button>
+            </form>
+            <p style="margin-top: 10px">
+              Esqueceu sua senha?
+              <a
+                class="ess"
+                href="../recuperar_senha/esqueci_senha.php"
+                style="color: #4d0000; text-decoration: none"
+                >Redefinir</a
+              >
+            </p>
+            <p>
+              Não tem conta?
+              <a
+                href="#"
+                class="ess"
+                href="../recuperar_senha/esqueci_senha.php"
+                style="color: #4d0000; text-decoration: none"
+                onclick="mostrarCadastro()"
+                >Cadastre-se</a
+              >
+            </p>
+          </div>
+
+          <!-- CADASTRO -->
+          <div id="tela-cadastro" style="display: none">
+            <h2>Cadastro</h2>
+            <form id="formCadastro">
+              <input type="text" name="username" required placeholder="Nome" />
+              <input type="email" name="email" required placeholder="Email" />
+
+              <div class="senha-container">
+                <input
+                  type="password"
+                  name="senha"
+                  id="senhaCadastro"
+                  required
+                  placeholder="Senha"
+                />
+                <i
+                  class="bx bx-hide toggle-senha"
+                  onclick="toggleSenha('senhaCadastro', this)"
+                ></i>
+              </div>
+
+              <div class="senha-container">
+                <input
+                  type="password"
+                  name="confirma"
+                  id="senhaConfirmar"
+                  required
+                  placeholder="Confirmar senha"
+                />
+                <i
+                  class="bx bx-hide toggle-senha"
+                  onclick="toggleSenha('senhaConfirmar', this)"
+                ></i>
+              </div>
+              <div id="regras-senha">
+                <p id="regra1" class="regra">• Mínimo de 8 caracteres</p>
+                <p id="regra6" class="regra">
+                  • Deve conter símbolo (! @ # $ % & *)
+                </p>
+                <p id="regra2" class="regra">• Deve conter letra maiúscula</p>
+                <p id="regra3" class="regra">• Deve conter letra minúscula</p>
+                <p id="regra4" class="regra">• Deve conter número</p>
+                <p id="regra5" class="regra">• As senhas devem ser iguais</p>
+              </div>
+
+              <button type="submit">Cadastrar</button>
+            </form>
+            <p>
+              Já tem conta?
+              <a
+                href="#"
+                class="ess"
+                href="../recuperar_senha/esqueci_senha.php"
+                style="color: #4d0000; text-decoration: none"
+                onclick="mostrarLogin()"
+                >Voltar ao login</a
+              >
+            </p>
+          </div>
+
+          <!-- RECUPERAR SENHA -->
+          <div id="tela-recuperar" style="display: none">
+            <h2>Recuperar Senha</h2>
+            <form id="formRecuperarSenha">
+              <input
+                type="email"
+                name="email"
+                placeholder="Digite seu email"
+                required
+              />
+              <button type="submit">Enviar link de recuperação</button>
+            </form>
+            <div id="msgRecuperarSenha"></div>
+            <p style="margin-top: 10px">
+              <a href="#" onclick="mostrarLogin()">Voltar ao login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- BANNER -->
+    </header>
+
+    <section class="home" id="home">
+      <div class="home-text">
+        <h1>FÓLIO</h1>
+        <h2>Comece sua jornada pela literatura</h2>
+        <button class="btn-login"><h3>Login</h3></button>
+        <button class="btn-cadastro"><h3>Cadastre-se</h3></button>
+      </div>
+    </section>
+
+    <br /><br />
+    <section class="tit" id="tit">
+      <div class="heading">
+        <h1>Explorando a Literatura Brasileira</h1>
+      </div>
+      <div class="containerr clearfix">
+        <div class="text">
+          <p>
+            Bem-vindo ao Fólio, um espaço criado para quem deseja aprender
+            literatura brasileira de forma clara, objetiva e acessível. Aqui,
+            você encontra conteúdos organizados especialmente para facilitar
+            seus estudos, com explicações diretas, linguagem simples e foco
+            total no que realmente importa para o ENEM e vestibulares. Nosso
+            objetivo é transformar a literatura em algo fácil de compreender:
+            apresentamos autores essenciais, resumos das principais obras,
+            análises, características dos movimentos literários e o contexto
+            histórico que ajuda você a entender cada período. Tudo isso pensado
+            para que você possa estudar com tranquilidade, revisar com rapidez e
+            aprender com profundidade — mesmo começando do zero. Explore as
+            páginas, navegue pelos tópicos e descubra como a literatura
+            brasileira pode ser interessante, atual e muito mais próxima do que
+            você imagina. No Fólio, cada parte do conhecimento foi construída
+            para acompanhar o seu ritmo de estudo e tornar sua preparação mais
+            leve e eficiente.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="carrossel-container">
+      <h2>Descubra mais sobre:</h2>
+      <div class="carrossel">
+        <button class="btn-anterior">&#10094;</button>
+        <div class="carrossel-inner">
+          <div class="card">
+            <img src="img/literatura nacional (1).png" alt="Imagem 1" />
+            <button class="btn-saiba-mais">Saiba mais</button>
+          </div>
+          <div class="card">
+            <img src="img/literatura nacional (2).png" alt="Imagem 2" />
+            <button class="btn-saiba-mais">Saiba mais</button>
+          </div>
+          <div class="card">
+            <img src="img/literatura nacional (3).png" alt="Imagem 3" />
+            <button class="btn-saiba-mais">Saiba mais</button>
+          </div>
+          <div class="card">
+            <img src="img/literatura nacional (4).png" alt="Imagem 4" />
+            <button class="btn-saiba-mais">Saiba mais</button>
+          </div>
+        </div>
+        <button class="btn-proximo">&#10095;</button>
+      </div>
+      <div class="dots"></div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <section class="tit intro-tit" id="tit">
+      <div class="containerr intro-container">
+        <div class="heading intro-heading">
+          <h1>Veja o Brasil por diferentes olhares</h1>
+        </div>
+
+        <div class="text intro-text">
+          <p>
+            A literatura é uma das formas mais ricas de compreender a história,
+            a cultura e as transformações sociais do Brasil. Por meio das
+            palavras, diferentes autores registraram seus tempos, denunciaram
+            injustiças, valorizaram identidades e expressaram os sentimentos de
+            gerações inteiras. No Brasil, a literatura assume um papel ainda
+            mais profundo: ela ajuda a construir memória e identidade em um país
+            marcado pela diversidade, pelas desigualdades e pela luta por voz e
+            reconhecimento. Cada movimento literário, desde o Quinhentismo até a
+            contemporaneidade, reflete fases importantes da formação do país —
+            seus conflitos, avanços, sonhos e desafios. Além de ampliar o
+            repertório cultural, a literatura desenvolve empatia, pensamento
+            crítico e sensibilidade. Ao entrar em contato com diferentes
+            narrativas, o leitor aprende a analisar o mundo, questionar
+            estruturas e entender realidades que muitas vezes não são as suas.
+            Para estudantes, a literatura também é fundamental na formação
+            acadêmica, pois fortalece a interpretação de texto, a escrita e o
+            domínio da língua, habilidades essenciais para o ENEM e
+            vestibulares. A literatura brasileira é, portanto, mais do que arte:
+            é ferramenta de conhecimento, transformação e resistência. Ler
+            nossos autores é reconhecer o Brasil em suas múltiplas vozes,
+            histórias e caminhos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    <section>
+      <div class="carta-container">
+        <div class="conteudo-carta">
+          <center><h2>Projeto Fólio</h2></center>
+          <p>
+            O Fólio é um projeto desenvolvido por estudantes da ETEC, unindo
+            criatividade, dedicação e paixão pela literatura brasileira. Criado
+            durante o curso técnico, o site nasceu da vontade de transformar o
+            estudo da literatura em algo acessível, moderno e bem organizado,
+            especialmente para quem se prepara para o ENEM e vestibulares. O
+            projeto foi construído em São Paulo, combinando conhecimentos da
+            área de tecnologia. Cada parte do site — desde o design até as
+            páginas de autores, obras e movimentos literários — foi pensada para
+            garantir uma navegação simples, visual e intuitiva. O Fólio
+            representa o esforço coletivo de estudantes que acreditam na
+            educação e na tecnologia como ferramentas de mudança. É um espaço
+            criado com cuidado para ajudar outros alunos a aprenderem de forma
+            clara, objetiva e confiável.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="svg-bottom">
+      <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path
+          d="M0,60 C480,-30 960,150 1440,60 L1440,120 L0,120 Z"
+          fill="#0c0d3c"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- footer -->
+    <section class="footer-section">
+      <br />
+      <footer class="footer">
+        <div class="footer-container">
+          <!-- NAVEGAÇÃO -->
+          <div class="footer-col">
+            <p class="qrp">Baixe o app</p>
+            <a class="qr"><img src="../imagens/qr.png" alt="img" /> </a>
+          </div>
+          <!-- CONTEXTO HISTÓRICO -->
+          <div class="footer-col">
+            <h5>ESCOLAS LITERÁRIAS</h5>
+            <ul>
+              <li>
+                <a class="btn-saiba-mais">Quinhentismo</a>
+              </li>
+              <li><a class="btn-saiba-mais">Barroco</a></li>
+              <li><a class="btn-saiba-mais">Arcadismo</a></li>
+              <li><a class="btn-saiba-mais">Romantismo</a></li>
+              <li><a class="btn-saiba-mais">Realismo</a></li>
+              <li><a class="btn-saiba-mais">Naturalismo</a></li>
+              <li>
+                <a class="btn-saiba-mais">Parnasianismo</a>
+              </li>
+              <li><a class="btn-saiba-mais">Simbolismo</a></li>
+              <li>
+                <a class="btn-saiba-mais">Pré-Modernismo</a>
+              </li>
+              <li><a class="btn-saiba-mais">Modernismo</a></li>
+              <li>
+                <a class="btn-saiba-mais">Pós-Modernismo</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- OBRAS -->
+          <div class="footer-col">
+            <h5>ACERVO LITERÁRIO</h5>
+            <ul>
+              <li><a class="btn-saiba-mais">Livros</a></li>
+            </ul>
+            <br />
+            <h5>NAVEGAÇÃO</h5>
+            <ul>
+              <li><a class="btn-saiba-mais">HOME</a></li>
+              <li><a class="btn-saiba-mais">FÓRUM</a></li>
+              <li><a class="btn-saiba-mais">SOBRE O SITE</a></li>
+              <li><a class="btn-saiba-mais">MINHA CONTA</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>FALE CONOSCO</h5>
+            <form id="contatoForm" method="POST" action="../enviar_email.php">
+              <label for="emailContato">Email</label>
+              <input
+                type="email"
+                name="emailContato"
+                id="emailContato"
+                placeholder="Seu email"
+                required
+              />
+
+              <label for="mensagemContato">Mensagem</label>
+              <textarea
+                name="mensagemContato"
+                id="mensagemContato"
+                rows="3"
+                placeholder="Digite sua mensagem"
+                required
+                style="color: black; background-color: #fff"
+              ></textarea>
+
+              <button type="submit">Enviar</button>
+            </form>
+
+            <!-- Mensagem de retorno (sem interferir no layout) -->
+            <div
+              id="resultadoContato"
+              style="margin-top: 8px; font-size: 0.9rem"
+            ></div>
+          </div>
+        </div>
+      </footer>
+      <br />
+    </section>
+
+    <div class="footer-bottom">
+      <small
+        >&copy; 2025 Fólio. Todos os direitos reservados.</small
+      >
+    </div>
+
+    <!-- Scripts Carrossel, Modal e Login/Cadastro/Contato -->
+    <script>
+      /* ===== Modal ===== */
+      function mostrarCadastro() {
+        document.getElementById("tela-login").style.display = "none";
+        document.getElementById("tela-cadastro").style.display = "block";
+        document.getElementById("tela-recuperar").style.display = "none";
+      }
+      function mostrarLogin() {
+        document.getElementById("tela-cadastro").style.display = "none";
+        document.getElementById("tela-login").style.display = "block";
+        document.getElementById("tela-recuperar").style.display = "none";
+      }
+
+      document.querySelectorAll(".btn-login").forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.getElementById("modal").style.display = "flex";
+          mostrarLogin();
+        });
+      });
+
+      document.querySelectorAll(".btn-cadastro").forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.getElementById("modal").style.display = "flex";
+          mostrarCadastro();
+        });
+      });
+
+      document
+        .getElementById("close-modal")
+        .addEventListener("click", function () {
+          document.getElementById("modal").style.display = "none";
+        });
+
+      document.getElementById("modal").addEventListener("click", function (e) {
+        if (e.target === this) this.style.display = "none";
+      });
+
+      function toggleSenha(idCampo, icone) {
+        const campo = document.getElementById(idCampo);
+        if (campo.type === "password") {
+          campo.type = "text";
+          icone.classList.remove("bx-hide");
+          icone.classList.add("bx-show");
+        } else {
+          campo.type = "password";
+          icone.classList.remove("bx-show");
+          icone.classList.add("bx-hide");
+        }
+      }
+
+      /* ===== Carrossel ===== */
+      document.addEventListener("DOMContentLoaded", function () {
+        const track = document.querySelector(".carrossel-inner");
+        const slides = Array.from(
+          document.querySelectorAll(".carrossel .card")
+        );
+        const prevBtn = document.querySelector(".btn-anterior");
+        const nextBtn = document.querySelector(".btn-proximo");
+
+        // Clones para loop infinito
+        const firstClone = slides[0].cloneNode(true);
+        const lastClone = slides[slides.length - 1].cloneNode(true);
+
+        track.appendChild(firstClone);
+        track.insertBefore(lastClone, slides[0]);
+
+        const allSlides = Array.from(
+          document.querySelectorAll(".carrossel .card")
+        );
+        let index = 1;
+
+        function updateSlideWidth() {
+          return allSlides[index].offsetWidth + 20;
+        }
+
+        function moveToSlide(noAnimation = false) {
+          const slideWidth = updateSlideWidth();
+
+          if (noAnimation) {
+            track.style.transition = "none";
+          } else {
+            track.style.transition = "transform 0.45s ease-in-out";
+          }
+
+          track.style.transform = `translateX(-${index * slideWidth}px)`;
+        }
+
+        nextBtn.addEventListener("click", () => {
+          index++;
+          moveToSlide();
+        });
+
+        prevBtn.addEventListener("click", () => {
+          index--;
+          moveToSlide();
+        });
+
+        track.addEventListener("transitionend", () => {
+          if (allSlides[index] === firstClone) {
+            index = 1;
+            moveToSlide(true);
+          }
+          if (allSlides[index] === lastClone) {
+            index = slides.length;
+            moveToSlide(true);
+          }
+        });
+
+        // Iniciar posição
+        moveToSlide(true);
+      });
+
+      /* ===== Formulários ===== */
+      document
+        .getElementById("formCadastro")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+          fetch("../cadastro.php", { method: "POST", body: formData })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.status === "sucesso")
+                Swal.fire(
+                  "Cadastro realizado!",
+                  "Agora faça login.",
+                  "success"
+                ).then(() => mostrarLogin());
+              else Swal.fire("Erro", data.mensagem, "error");
+            })
+            .catch(() => Swal.fire("Erro", "Erro de conexão.", "error"));
+        });
+
+      document
+        .getElementById("formLogin")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+          fetch("../login.php", { method: "POST", body: formData })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.status === "sucesso")
+                Swal.fire(
+                  "Bem-vindo!",
+                  "Login realizado com sucesso.",
+                  "success"
+                ).then(() => (window.location.href = "../carta/carta.html"));
+              else Swal.fire("Erro", data.mensagem, "error");
+            })
+            .catch(() => Swal.fire("Erro", "Erro de conexão.", "error"));
+        });
+
+      document
+        .getElementById("contatoForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+          try {
+            const response = await fetch("../enviar_email.php", {
+              method: "POST",
+              body: formData,
+            });
+            const texto = (await response.text()).trim();
+            if (texto === "success") {
+              alert("✅ Mensagem enviada com sucesso!");
+              this.reset();
+            } else alert("❌ Ocorreu um erro ao enviar. Tente novamente.");
+          } catch (err) {
+            alert("❌ Erro de conexão. Tente novamente.");
+            console.error(err);
+          }
+        });
+      // Abrir login ao clicar em "Saiba mais"
+      document.querySelectorAll(".btn-saiba-mais").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document.getElementById("modal").style.display = "flex";
+          mostrarLogin();
+        });
+      });
+
+      const senha = document.getElementById("senhaCadastro");
+      const confirmar = document.getElementById("senhaConfirmar");
+
+      function validarSenha() {
+        const s = senha.value;
+        const c = confirmar.value;
+
+        // Regras
+        document.getElementById("regra1").classList.toggle("ok", s.length >= 8);
+        document
+          .getElementById("regra2")
+          .classList.toggle("ok", /[A-Z]/.test(s));
+        document
+          .getElementById("regra3")
+          .classList.toggle("ok", /[a-z]/.test(s));
+        document.getElementById("regra4").classList.toggle("ok", /\d/.test(s));
+        document
+          .getElementById("regra5")
+          .classList.toggle("ok", s !== "" && s === c);
+        document
+          .getElementById("regra6")
+          .classList.toggle("ok", /[^A-Za-z0-9]/.test(s));
+      }
+
+      // Ouvintes
+      senha.addEventListener("input", validarSenha);
+      confirmar.addEventListener("input", validarSenha);
+    </script>
+  </body>
+</html>

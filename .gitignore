@@ -1,0 +1,13 @@
+# Configuração local com senhas (use config.example.php como modelo)
+config.php
+
+# Arquivos antigos/duplicados guardados fora do repositório
+_nao_usados/
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log

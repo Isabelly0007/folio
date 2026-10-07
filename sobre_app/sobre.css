@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap");
+
+/*<style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+</style>*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 2rem;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+  font-family: "Quicksand", sans-serif;
+}
+:root {
+  --main-color: #e5b6ac;
+  --second-color: #000000;
+  --third-color: #740e10;
+}
+section {
+  padding: 0 10%;
+}
+img {
+  width: 100%;
+}
+header {
+  position: relative;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /*   box-shadow: 0 4px 41px rgb(14 55 54 /14%);*/
+  padding: 15px 10%;
+  transition: 0.2s;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: "Quicksand", sans-serif; /* mesma da navbar */
+  font-weight: 700;
+  font-size: 1rem; /* mesmo tamanho do texto da navbar */
+  color: var(--third-color);
+  text-transform: uppercase;
+}
+
+.logo img {
+  width: 40px;
+  margin-right: 8px; /* espaço entre a logo e o nome */
+}
+
+.logo:hover {
+  color: var(--main-color);
+  transition: color 0.3s ease;
+}
+.navbar {
+  display: flex;
+}
+.navbar a {
+  font-size: 1rem;
+  padding: 11px 20px;
+  color: var(--third-color);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.navbar a:hover {
+  color: var(--main-color);
+}
+#menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  color: var(--third-color);
+  display: none;
+}
+@media (max-width: 1150px) {
+  header {
+    padding: 18px 7%;
+  }
+  section {
+    padding: 50px 7%;
+  }
+}
+
+@media (max-width: 908px) {
+  header {
+    padding: 15px 6%;
+  }
+  #menu-icon {
+    display: initial;
+  }
+  header .navbar {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #efecec;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(102, 100, 100, 0.2); /* sombra apenas na parte de baixo */
+    border-top: 2px solid #fff;
+    transition: 0.2s;
+    text-align: left;
+    padding-left: 4%;
+  }
+  .navbar.active {
+    top: 100%;
+  }
+  .navbar a {
+    padding: 1rem;
+    color: #000000;
+    display: block;
+  }
+}
+
+/* ===== Faixas coloridas ===== */
+.ondas-svg {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  line-height: 0;
+}
+.ondas-svg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.faixa-curvas {
+  position: relative;
+  height: 90px;
+  background-color: transparent;
+}
+
+.faixa {
+  position: absolute;
+  width: 100%;
+  height: 90px;
+}
+
+.faixa1 {
+  background-color: #fcd6ab;
+  top: 0;
+  clip-path: ellipse(130% 100% at 50% 0%);
+}
+
+.faixa2 {
+  background-color: #d7744c;
+  top: 20px;
+  clip-path: ellipse(130% 100% at 50% 0%);
+}
+
+.faixa3 {
+  background-color: #4d0101;
+  top: 40px;
+  clip-path: ellipse(130% 100% at 50% 0%);
+}
+
+/* ===== Sobre nós ===== */
+.sobre-nos {
+  background-color: #4d0101;
+  color: white;
+  padding: 60px 20px;
+}
+
+.sobre-nos h2 {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.sobre-nos h4 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* ===== Equipe ===== */
+.placeholder-img {
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+}
+.equipe .col-6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ajuste das imagens */
+/* ===== Imagens SEM MUDAR NO MOBILE ===== */
+.img-equipe {
+  width: 190px !important;
+  height: 250px !important;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Mobile mantém exatamente o mesmo tamanho */
+@media (max-width: 700px) {
+  .img-equipe {
+    width: 190px !important;
+    height: 250px !important;
+    margin: 0 auto; /* centraliza no celular */
+  }
+}
+
+/* Caixa com nome + texto */
+.info-equipe {
+  background: #630000;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  max-width: 220px;
+  margin-top: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.info-equipe h5 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.info-equipe p {
+  margin-top: 6px;
+  font-size: 0.85rem;
+}

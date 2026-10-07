@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" role="img" aria-label="Imagem indisponível">
+  <rect width="200" height="300" fill="#e9dcc9"/>
+  <rect x="12" y="12" width="176" height="276" fill="none" stroke="#4d0101" stroke-width="3"/>
+  <text x="100" y="150" font-family="Georgia, serif" font-size="56" fill="#4d0101" text-anchor="middle">F</text>
+  <text x="100" y="190" font-family="Georgia, serif" font-size="14" fill="#4d0101" text-anchor="middle">Sem imagem</text>
+</svg>
